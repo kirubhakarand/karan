@@ -1,8 +1,7 @@
 # The name of this view in Looker is "Product Sheets"
 view: product_sheets {
-  # The sql_table_name parameter indicates the underlying database table
-  # to be used for all fields in this view.
-  sql_table_name: [orders.product_sheets]
+
+  sql_table_name: `orders.product_sheets`
     ;;
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
@@ -29,7 +28,7 @@ view: product_sheets {
 
   measure: count {
     type: count
-    approximate_threshold: 100000
+
     drill_fields: [product_name, products.item_name, products.id]
   }
 }

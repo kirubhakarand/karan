@@ -1,8 +1,7 @@
 # The name of this view in Looker is "Products"
 view: products {
-  # The sql_table_name parameter indicates the underlying database table
-  # to be used for all fields in this view.
-  sql_table_name: [orders.products]
+
+  sql_table_name: `orders.products`
     ;;
   drill_fields: [id]
   # This primary key is the unique key for this table in the underlying database.
@@ -40,7 +39,7 @@ view: products {
 
   dimension: rank {
     type: number
-    sql: ${TABLE}.[rank] ;;
+    sql: ${TABLE}.rank ;;
   }
 
   dimension: retail_price {
@@ -69,7 +68,7 @@ view: products {
 
   measure: count {
     type: count
-    approximate_threshold: 100000
-    drill_fields: [id, item_name, inventory_items.count, product_sheets.count, inventory_items_vijaya.count]
+    drill_fields: [id, item_name, inventory_items.count, inventory_items_vijaya.count, product_sheets.count]
+
   }
 }

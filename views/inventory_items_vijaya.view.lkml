@@ -2,7 +2,7 @@
 view: inventory_items_vijaya {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: [orders.inventory_items_vijaya]
+  sql_table_name: `orders.inventory_items_vijaya`
     ;;
   drill_fields: [id]
   # This primary key is the unique key for this table in the underlying database.
@@ -67,7 +67,6 @@ view: inventory_items_vijaya {
 
   measure: count {
     type: count
-    approximate_threshold: 100000
     drill_fields: [id, products.item_name, products.id]
   }
 }

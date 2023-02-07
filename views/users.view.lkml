@@ -2,8 +2,7 @@
 view: users {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: [orders.users]
-    ;;
+  sql_table_name: [orders.users];;
   drill_fields: [id]
   # This primary key is the unique key for this table in the underlying database.
   # You need to define a primary key in a view in order to join to other views.
@@ -31,6 +30,12 @@ view: users {
 
   measure: average_age {
     type: average
+    sql: ${age} ;;
+  }
+
+
+  measure: total_age {
+    type: sum
     sql: ${age} ;;
   }
 
@@ -99,7 +104,6 @@ view: users {
 
   measure: count {
     type: count
-    approximate_threshold: 100000
-    drill_fields: [id, last_name, first_name, orders.count]
+    approximate_threshold: 10000
   }
 }

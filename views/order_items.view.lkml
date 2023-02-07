@@ -1,8 +1,7 @@
 # The name of this view in Looker is "Order Items"
 view: order_items {
   # The sql_table_name parameter indicates the underlying database table
-  # to be used for all fields in this view.
-  sql_table_name: [orders.order_items]
+  sql_table_name: `orders.order_items`
     ;;
   drill_fields: [id]
   # This primary key is the unique key for this table in the underlying database.
@@ -56,7 +55,7 @@ view: order_items {
 
   measure: count {
     type: count
-    approximate_threshold: 100000
+
     drill_fields: [id, inventory_items.id, orders.id]
   }
 }

@@ -1,7 +1,7 @@
 # The name of this view in Looker is "Employee Master"
 view: employee_master {
   # The sql_table_name parameter indicates the underlying database table
-  # to be used for all fields in this view.
+  # to be used for all fields in this vie
   sql_table_name: [orders.employee_master]
     ;;
   # No primary key is defined for this view. In order to join this view in an Explore,
@@ -24,6 +24,5 @@ view: employee_master {
   measure: count {
     type: count
     approximate_threshold: 100000
-    drill_fields: []
   }
 }
